@@ -1002,19 +1002,19 @@ input:checked + .slider:before {
   /* 目标设置换行 */
   .goal-setting {
     gap: 5px;
-    font-size: 13px;
+    字体大小: 13px;
   }
 }
 /* 手机端增大点击区域 */
-@media (max-width: 500px) {
+@media (最大宽度: 500px) {
   .buttons button,
   .result-buttons button {
-    min-height: 44px;
+    最小高度: 44px;
   }
 
   .speak-btn {
     min-width: 44px;
-    min-height: 44px;
+    最小高度: 44px;
   }
 
   .top-btn {
