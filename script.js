@@ -233,20 +233,23 @@ var homeBackBtn = document.getElementById("homeBackBtn");
 var mainElements = document.querySelectorAll(".container > *:not(#hardWordsPage):not(#statsPage)");
 
 function showHardWordsPage() {
-  for (var i = 0; i < mainElements.length; i++) {
-    mainElements[i].style.display = "none";
-  }
+  homePage.style.display = "none";
+  appPage.style.display = "none";
   hardWordsPage.style.display = "block";
+  statsPage.style.display = "none";
   renderHardWordsList();
 }
 
-function showMainPage() {
+function showAppPage() {
+  homePage.style.display = "none";
+  appPage.style.display = "block";
   hardWordsPage.style.display = "none";
   statsPage.style.display = "none";
-  for (var i = 0; i < mainElements.length; i++) {
-    mainElements[i].style.display = "";
-  }
   showWord(currentIndex);
+}
+
+function showMainPage() {
+  showAppPage();
 }
 
 function renderHardWordsList() {
@@ -367,20 +370,15 @@ var statsPage = document.getElementById("statsPage");
 var backBtn2 = document.getElementById("backBtn2");
 
 function showStatsPage() {
-  for (var i = 0; i < mainElements.length; i++) {
-    mainElements[i].style.display = "none";
-  }
+  homePage.style.display = "none";
+  appPage.style.display = "none";
   hardWordsPage.style.display = "none";
   statsPage.style.display = "block";
   renderStats();
 }
 
 function showMainPageFromStats() {
-  statsPage.style.display = "none";
-  for (var i = 0; i < mainElements.length; i++) {
-    mainElements[i].style.display = "";
-  }
-  showWord(currentIndex);
+  showAppPage();
 }
 
 function renderStats() {
@@ -538,12 +536,12 @@ btnCET4.addEventListener("click", function() {
 });
 
 btnCET6.addEventListener("click", function() {
-  if (currentBank !== "cet6") {
-    switchBank("cet6");
+  如果 (currentBank !== "cet6") {
+    切换银行("cet6");
   }
 });
 
-if (startBtn) {
+如果 (startBtn) {
   startBtn.addEventListener("click", function() {
     if (homePage && appPage) {
       homePage.style.display = "none";
@@ -552,17 +550,17 @@ if (startBtn) {
   });
 }
 
-if (comingSoonBtn) {
+如果 (comingSoonBtn) {
   comingSoonBtn.addEventListener("click", function(event) {
-    event.preventDefault();
+    事件.preventDefault();
   });
 }
 
 // ========== 页面加载 ==========
 currentIndex = loadCurrentIndex();
-showWord(currentIndex);
-totalNumElement.textContent = wordList.length;
-console.log("当前生词本：", hardWords);
+显示单词(当前索引);
+totalNumElement.文本内容 = wordList.长度;
+控制台.日志("当前生词本：", hardWords);
 
 // 初始化每日目标
 dailyGoal = loadData("flashcard-dailyGoal", 10);
@@ -580,12 +578,12 @@ if (darkMode) {
 
 darkModeBtn.addEventListener("click", function() {
   // 切换夜间模式
-  if (document.body.classList.contains("dark-mode")) {
+  如果 (document.body.classList.包含("dark-mode")) {
     // 关闭夜间模式
-    document.body.classList.remove("dark-mode");
+    文档.body.classList.移除("dark-mode");
     darkModeBtn.textContent = "🌙";
     saveData("flashcard-darkMode", false);
-  } else {
+  } 否则 {
     // 开启夜间模式
     document.body.classList.add("dark-mode");
     darkModeBtn.textContent = "☀️";
