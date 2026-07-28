@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>我的单词闪卡</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <div id="homePage" class="home-page">
+      <h1>欢迎来到小豪的英语自习室</h1>
+      <div class="home-actions">
+        <button id="startBtn" class="home-button home-button-primary">背单词</button>
+        <button id="comingSoonBtn" class="home-button home-button-secondary">敬请期待</button>
+      </div>
+    </div>
+
+    <div id="appPage" style="display: none; position: relative;">
+      <button id="homeBackBtn" class="top-btn home-back-btn">⬅ 主页面</button>
+      <button id="hardWordsBtn" class="top-btn">📖 生词本</button>
+      <button id="statsBtn" class="top-btn stats-btn">📊 统计</button>
+      <h1>小豪的英语自习室</h1>
+
+      <div class="bank-selector">
+      <button class="bank-btn active" id="btnCET4">四级词库</button>
+      <button class="bank-btn" id="btnCET6">六级词库</button>
+    </div>
+
+    <p class="counter">第 <span id="currentNum">1</span> / <span id="totalNum">4</span> 个</p>
+    <div class="mode-toggle">
+     <span class="mode-label">顺序</span>
+     <label class="switch">
+      <input type="checkbox" id="randomToggle">
+      <span class="slider"></span>
+     </label>
+     <span class="mode-label">随机</span>
+    </div>
+    <div class="goal-progress" id="goalProgress" style="display: none;">
+      <p class="goal-text">今日目标：<span id="goalText">0/10</span></p>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+      <button id="darkModeBtn" class="top-btn dark-mode-btn">🌙</button>
+    </div>
+    
+    <div class="card" id="card">
+      <div class="card-inner">
+        <div class="card-front">
+          <p class="word" id="word">abandon</p>
+          <button id="speakBtn" class="speak-btn" title="点击听发音">🔊</button>
+        </div>
+        <div class="card-back">
+          <div class="card-back-content">
+            <p class="back-word" id="backWord">abandon</p>
+            <p class="meaning" id="meaning">v. 放弃；遗弃</p>
+            <p class="example" id="example" style="display: none;"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="buttons">
+      <button id="prevBtn">⬅ 上一个</button>
+      <button id="nextBtn">下一个 ➡</button>
+    </div>
+
+    <div class="result-buttons">
+      <button class="btn-forgot" id="btnForgot">❌ 不认识</button>
+      <button class="btn-remember" id="btnRemember">✅ 认识</button>
+    </div>
+
+    <!-- 生词本页面 -->
+    <div id="hardWordsPage" class="hard-words-page" style="display: none;">
+      <h2>📖 我的生词本</h2>
+      <div id="hardWordsList" class="hard-words-list"></div>
+      <button id="backBtn" class="back-btn">⬅ 返回学习</button>
+    </div>
+
+    <!-- 统计页面 -->
+    <div id="statsPage" class="stats-page" style="display: none;">
+      <h2>📊 学习统计</h2>
+      
+      <div class="stats-summary">
+        <div class="stat-item">
+          <p class="stat-number" id="statDays">0</p>
+          <p class="stat-label">累计学习天数</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-number" id="statTotal">0</p>
+          <p class="stat-label">累计学习单词</p>
+        </div>
+        <div class="stat-item">
+          <p class="stat-number" id="statToday">0</p>
+          <p class="stat-label">今日学习</p>
+        </div>
+      </div>
+
+      <div class="goal-setting">
+        <label>🎯 每日目标：</label>
+        <input type="number" id="goalInput" min="5" max="100" step="5" value="10">
+        <span> 个单词</span>
+        <button id="goalSaveBtn" class="goal-save-btn">保存</button>
+      </div>
+      
+      <div class="reminder-setting">
+        <label>⏰ 间隔提醒：每</label>
+        <select id="reminderIntervalSelect">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="6" selected>6</option>
+        </select>
+        <span>小时</span>
+        <button id="reminderSaveBtn" class="goal-save-btn">开启</button>
+        <button id="reminderStopBtn" class="goal-save-btn stop-btn">关闭</button>
+      </div>
+
+      <h3>📅 打卡日历</h3>
+      <div class="calendar" id="calendar"></div>
+
+      <button id="backBtn2" class="back-btn">⬅ 返回学习</button>
+    </div>
+
+    </div>
+
+  <script src="words.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
