@@ -536,31 +536,28 @@ btnCET4.addEventListener("click", function() {
 });
 
 btnCET6.addEventListener("click", function() {
-  如果 (currentBank !== "cet6") {
-    切换银行("cet6");
+  if (currentBank !== "cet6") {
+    switchBank("cet6");
   }
 });
 
-如果 (startBtn) {
+if (startBtn) {
   startBtn.addEventListener("click", function() {
-    if (homePage && appPage) {
-      homePage.style.display = "none";
-      appPage.style.display = "block";
-    }
+    showAppPage();
   });
 }
 
-如果 (comingSoonBtn) {
+if (comingSoonBtn) {
   comingSoonBtn.addEventListener("click", function(event) {
-    事件.preventDefault();
+    event.preventDefault();
   });
 }
 
 // ========== 页面加载 ==========
 currentIndex = loadCurrentIndex();
-显示单词(当前索引);
-totalNumElement.文本内容 = wordList.长度;
-控制台.日志("当前生词本：", hardWords);
+showWord(currentIndex);
+totalNumElement.textContent = wordList.length;
+console.log("当前生词本：", hardWords);
 
 // 初始化每日目标
 dailyGoal = loadData("flashcard-dailyGoal", 10);
